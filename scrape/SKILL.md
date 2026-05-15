@@ -872,7 +872,7 @@ after 3-4 selector attempts:
 ## What this skill does NOT do
 
 - Mutating actions (use /automate when shipped, or $B primitives directly)
-- Auth flows / cookie import (use /setup-browser-cookies first)
+- Auth flows / cookie import (log in via headed mode with /browse or /open-gstack-browser first)
 - Multi-page crawls (this is one-shot per call)
 - Anything that requires the daemon to not be running
 

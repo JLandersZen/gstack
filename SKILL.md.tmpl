@@ -60,7 +60,7 @@ quality gates that produce better results than answering inline.
 - User asks about security, OWASP, vulnerabilities, "is this secure" → invoke `/cso`
 - User asks to make a PDF, document, publication → invoke `/make-pdf`
 - User asks to launch a real browser for QA, "open the browser" → invoke `/open-gstack-browser`
-- User asks to import cookies for authenticated testing → invoke `/setup-browser-cookies`
+- User asks to import cookies for authenticated testing → tell them to log in via `/browse` or `/open-gstack-browser` (headed mode)
 - User asks about page speed, performance regression, benchmarks → invoke `/benchmark`
 - User asks what gstack has learned, "show learnings" → invoke `/learn`
 - User asks to tune question sensitivity, "stop asking me that" → invoke `/plan-tune`

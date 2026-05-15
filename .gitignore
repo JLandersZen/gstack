@@ -6,9 +6,8 @@ design/dist/
 make-pdf/dist/
 bin/gstack-global-discover
 .gstack/
-.claude/skills/
-.claude/scheduled_tasks.lock
-.claude/*.lock
+.claude/
+.codex/
 .agents/
 .factory/
 .kiro/

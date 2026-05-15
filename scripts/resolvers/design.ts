@@ -159,7 +159,7 @@ After the first navigation, check if the URL changed to a login-like path:
 \`\`\`bash
 $B url
 \`\`\`
-If URL contains \`/login\`, \`/signin\`, \`/auth\`, or \`/sso\`: the site requires authentication. AskUserQuestion: "This site requires authentication. Want to import cookies from your browser? Run \`/setup-browser-cookies\` first if needed."
+If URL contains \`/login\`, \`/signin\`, \`/auth\`, or \`/sso\`: the site requires authentication. AskUserQuestion: "This site requires authentication. Log in via headed mode first — run \`/browse\` or \`/open-gstack-browser\`, log in, then retry."
 
 ### Trunk Test (run on every page)
 
