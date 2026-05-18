@@ -225,7 +225,7 @@ export class BrowserManager {
       launchArgs.push('--no-sandbox');
     }
 
-    if (extensionsDir) {
+    if (extensionsDir && !process.env.BROWSE_SKIP_UNPACK) {
       launchArgs.push(
         `--disable-extensions-except=${extensionsDir}`,
         `--load-extension=${extensionsDir}`,
@@ -297,8 +297,6 @@ export class BrowserManager {
     const extensionPath = this.findExtensionPath();
     const launchArgs = [
       '--hide-crash-restore-bubble',
-      // Anti-bot-detection: remove the navigator.webdriver flag that Playwright sets.
-      // Sites like Google and NYTimes check this to block automation browsers.
       '--disable-blink-features=AutomationControlled',
     ];
     if (extensionPath) {
@@ -306,7 +304,9 @@ export class BrowserManager {
       // that already bakes the extension in as a component extension
       // (gbrowser / GStack Browser.app). Loading it twice causes a
       // ServiceWorkerState::SetWorkerId DCHECK crash.
-      if (!isCustomChromium()) {
+      // Also skip when enterprise policy blocks unpacked extension loading
+      // (the extension is pre-installed as a packed CRX in the profile).
+      if (!isCustomChromium() && !process.env.BROWSE_SKIP_UNPACK) {
         launchArgs.push(`--disable-extensions-except=${extensionPath}`);
         launchArgs.push(`--load-extension=${extensionPath}`);
       }
